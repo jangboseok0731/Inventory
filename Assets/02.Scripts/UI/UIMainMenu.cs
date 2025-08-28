@@ -10,6 +10,7 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private Button inventoryButton;
     [SerializeField] private Button statusButton;
 
+
     private void Start()
     {
         mainToInvenButton.onClick.AddListener(ShowMain);
@@ -37,4 +38,6 @@ public class UIMainMenu : MonoBehaviour
         UIManager.Instance.Status.gameObject.SetActive(true);
         UIManager.Instance.Inventory.gameObject.SetActive(false);
     }
+
+
 }

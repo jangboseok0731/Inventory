@@ -10,15 +10,24 @@ public class UISlot : MonoBehaviour
     //셋아이템,리프레쉬유아이 메서드 추가.
 
     [SerializeField] private Image icon;
+    [SerializeField] private Button button;
 
     private Item item;
-    private int count;
 
     public void SetItem(Item newItem, int itemCount)
     {
         item = newItem;
         RefreshUI();
 
+        if(item != null)
+        {
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(() => { UIManager.Instance.Inventory.OnSlotClicked(item); });
+        }
+        else
+        {
+            button.onClick.RemoveAllListeners();
+        }
 
     }
     public void RefreshUI()
@@ -26,11 +35,14 @@ public class UISlot : MonoBehaviour
         if(item != null)
         {
             icon.sprite = item.Data.icon;
+            icon.enabled = true;
         }
         else
         {
             icon.sprite=null;
+            icon.enabled = false;
         }
     }
+
     
 }

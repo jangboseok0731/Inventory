@@ -10,8 +10,6 @@ public class UIStatus : MonoBehaviour
     [SerializeField] private TextMeshProUGUI defenceTxt;
     [SerializeField] private TextMeshProUGUI hpTxt;
 
-
-
     public void SetCharacterInfo(Character character)
     {
         damageTxt.text = $"Damage :{character.Damage} ";

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Character 
 {
     public string Name { get; private set; }
     public int Damage { get; private set; }
@@ -36,23 +36,23 @@ public class Character : MonoBehaviour
         // 기존에 장착된 아이템이 있다면 해제
         if (equippedItem != null)
         {
-            UnEquip();
+            UnEquip(equippedItem);
         }
-
         // 장착
         equippedItem = item;
-        Damage += itemData.damageBonus;
-        Defense += itemData.defenceBonus;
+        Damage += item.Data.damageBonus;
+        Defense += item.Data.defenceBonus;
     }
-    public void UnEquip()
+    public void UnEquip(Item item)
     {
         if (equippedItem != null)
         {
             equippedItem = null;
         }
 
-        Damage -= itemData.damageBonus;
-        Defense -= itemData.defenceBonus;
+        Damage -= item.Data.damageBonus;
+        Defense -= item.Data.defenceBonus;
+        equippedItem = null;
     }
     public void AddItem(Item newItem)
     {
