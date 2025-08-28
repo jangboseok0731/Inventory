@@ -28,11 +28,16 @@ public class GameManager : MonoBehaviour
     }
     public void SetData()
     {
-        List<Item> startingItem = new List<Item>
-        {
+        List<Item> startingItem = new List<Item>();
+        ItemData swordData = Resources.Load<ItemData>("Items/Sword");
+        ItemData shieldData = Resources.Load<ItemData>("Items/Dok2");
 
-        };
-        Player = new Character("전사",10,4,3,100,80,0,200000, startingItem);
+        // 아이템 넣기
+        startingItem.Add(new Item(swordData, 1));
+        startingItem.Add(new Item(shieldData, 2));
+
+        Player = new Character("전사", 10, 4, 3, 100, 80, 0, 200000, startingItem);
         UIManager.Instance.Status.SetCharacterInfo(Player);
     }
+
 }

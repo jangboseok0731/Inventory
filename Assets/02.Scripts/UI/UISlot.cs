@@ -25,7 +25,7 @@ public class UISlot : MonoBehaviour
     {
         if(item != null)
         {
-            icon.sprite = item.Icon;
+            icon.sprite = item.Data.icon;
         }
         else
         {

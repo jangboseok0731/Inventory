@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Item : MonoBehaviour
+public class Item
 {
-    public Sprite Icon;
+    public ItemData Data;
     public int Count;
 
-    public Item(Sprite icon, int count)
+    public Item(ItemData data, int count)
     {
-        Icon = icon;
+        Data = data;
         Count = count;
     }
 }

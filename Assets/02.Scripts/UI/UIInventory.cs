@@ -12,8 +12,18 @@ public class UIInventory : MonoBehaviour
     private void Start()
     {
         InitInventoryUI();
-    }
+        Debug.Log($"Player.Inventory °³¼ö: {GameManager.Instance.Player.Inventory.Count}");
 
+    }
+    public void RefreshInventoryUI()
+    {
+        foreach (var slot in slots)
+        {
+            Destroy(slot.gameObject);
+        }
+        slots.Clear();
+        InitInventoryUI();
+    }
 
     private void InitInventoryUI()
     {

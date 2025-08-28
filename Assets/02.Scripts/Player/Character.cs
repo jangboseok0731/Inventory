@@ -15,6 +15,8 @@ public class Character : MonoBehaviour
     public int Gold { get; private set; }
     public List<Item> Inventory { get; private set; } = new List<Item>();
 
+    public ItemData itemData;
+
     private Item equippedItem;
 
     public Character(string name,int damage,int defence, int level, int hp, int mp, int exp, int gold, List<Item> inventory)
@@ -39,6 +41,8 @@ public class Character : MonoBehaviour
 
         // 장착
         equippedItem = item;
+        Damage += itemData.damageBonus;
+        Defense += itemData.defenceBonus;
     }
     public void UnEquip()
     {
@@ -46,11 +50,14 @@ public class Character : MonoBehaviour
         {
             equippedItem = null;
         }
+
+        Damage -= itemData.damageBonus;
+        Defense -= itemData.defenceBonus;
     }
     public void AddItem(Item newItem)
     {
         // 기존에 같은 아이템이 있는지 찾기 (여기서 기준은 Icon이나 이름 등)
-        var existingItem = Inventory.Find(i => i.Icon == newItem.Icon);
+        var existingItem = Inventory.Find(i => i.Data.name == newItem.Data.name);
 
         if (existingItem != null)
         {

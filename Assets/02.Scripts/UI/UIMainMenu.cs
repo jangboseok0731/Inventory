@@ -28,6 +28,8 @@ public class UIMainMenu : MonoBehaviour
         UIManager.Instance.MainMenu.gameObject.SetActive(false);
         UIManager.Instance.Status.gameObject.SetActive(false);
         UIManager.Instance.Inventory.gameObject.SetActive(true);
+
+        UIManager.Instance.Inventory.GetComponent<UIInventory>().RefreshInventoryUI();
     }
     public void ShowStatus()
     {
