@@ -3352,8 +3352,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotPrefab: {fileID: 1960305827934257797, guid: 91149af0917d96443b3458f5d37c3388, type: 3}
   slotParant: {fileID: 1736947923}
-  equipButton: {fileID: 0}
-  unEquipButton: {fileID: 0}
+  equipButton: {fileID: 803321060}
+  unEquipButton: {fileID: 904859236}
 --- !u!1 &2040306305
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,11 +30,13 @@ public class GameManager : MonoBehaviour
     {
         List<Item> startingItem = new List<Item>();
         ItemData swordData = Resources.Load<ItemData>("Items/Sword");
-        ItemData shieldData = Resources.Load<ItemData>("Items/Dok2");
+        ItemData dok2Data = Resources.Load<ItemData>("Items/Dok2");
+        ItemData bowCowData = Resources.Load<ItemData>("Items/BowCow");
 
         // 아이템 넣기
         startingItem.Add(new Item(swordData, 1));
-        startingItem.Add(new Item(shieldData, 2));
+        startingItem.Add(new Item(dok2Data, 2));
+        startingItem.Add(new Item(bowCowData, 3));
 
         Player = new Character("전사", 10, 4, 3, 100, 80, 0, 200000, startingItem);
         UIManager.Instance.Status.SetCharacterInfo(Player);
