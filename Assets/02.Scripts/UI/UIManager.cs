@@ -5,8 +5,7 @@ using UnityEngine;
 
 public  class UIManager : MonoBehaviour
 {
-    private static UIManager instance;
-    public static UIManager Instance { get { return instance; } }
+    public static UIManager Instance { get; private set ; }
 
     [SerializeField] private UIMainMenu mainMenu;
     [SerializeField] private UIStatus status;
@@ -19,9 +18,10 @@ public  class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance != null)
+        if(Instance == null)
         {
-            instance = this;
+            Instance = this;
+            //DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
     }

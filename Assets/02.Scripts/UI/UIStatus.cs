@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIStatus : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private TextMeshProUGUI damageTxt;
+    [SerializeField] private TextMeshProUGUI defenceTxt;
+    [SerializeField] private TextMeshProUGUI hpTxt;
+
+
+
+    public void SetCharacterInfo(Character character)
     {
-        
+        damageTxt.text = $"Damage :{character.Damage} ";
+        defenceTxt.text = $"Defence : {character.Defense}";
+        hpTxt.text = $"HP : {character.HP}";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

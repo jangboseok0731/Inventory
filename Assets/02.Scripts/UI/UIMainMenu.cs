@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class UIMainMenu : MonoBehaviour
 {
-    [SerializeField] private Button mainButton;
+    [SerializeField] private Button mainToInvenButton;
+    [SerializeField] private Button mainToStatButton;
     [SerializeField] private Button inventoryButton;
     [SerializeField] private Button statusButton;
 
     private void Start()
     {
-        mainButton.onClick.AddListener(ShowMain);
+        mainToInvenButton.onClick.AddListener(ShowMain);
+        mainToStatButton.onClick.AddListener(ShowMain);
         inventoryButton.onClick.AddListener(ShowInventory);
         statusButton.onClick.AddListener(ShowStatus);
     }
