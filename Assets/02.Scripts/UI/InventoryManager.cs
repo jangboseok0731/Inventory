@@ -9,7 +9,7 @@ public class InventoryManager : MonoBehaviour
 
     void Start()
     {
-        AddRandomItems(5); // 5개 아이템 랜덤 추가
+        AddRandomItems(4); // 5개 아이템 랜덤 추가
         DebugInventory();  // 확인용
     }
 

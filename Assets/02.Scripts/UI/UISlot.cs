@@ -10,10 +10,15 @@ public class UISlot : MonoBehaviour
     //셋아이템,리프레쉬유아이 메서드 추가.
 
     [SerializeField] private Image icon;
+    [SerializeField] private Image equipIcon;
     [SerializeField] private Button button;
 
     private Item item;
 
+    private void Awake()
+    {
+        equipIcon.enabled = false;
+    }
     public void SetItem(Item newItem, int itemCount)
     {
         item = newItem;
@@ -43,6 +48,14 @@ public class UISlot : MonoBehaviour
             icon.enabled = false;
         }
     }
-
+    public void SetEquip(bool isEquip)
+    {
+        if(equipIcon != null)
+            equipIcon.enabled = isEquip;
+    }
+    public bool HasItem(Item target)
+    {
+        return item == target;
+    }
     
 }

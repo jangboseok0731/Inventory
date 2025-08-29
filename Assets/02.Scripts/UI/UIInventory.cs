@@ -11,6 +11,7 @@ public class UIInventory : MonoBehaviour
     [SerializeField] private Button unEquipButton;
 
     private List<UISlot> slots = new List<UISlot>();
+    
     private Item selectedItem;
 
 
@@ -67,6 +68,14 @@ public class UIInventory : MonoBehaviour
         {
             GameManager.Instance.Player.Equip(selectedItem);
             UIManager.Instance.Status.SetCharacterInfo(GameManager.Instance.Player);
+
+            foreach (var slot in slots)
+            {
+                if (slot.HasItem(selectedItem))
+                {
+                    slot.SetEquip(true);
+                }
+            }
         }
     }
 
@@ -76,6 +85,13 @@ public class UIInventory : MonoBehaviour
         {
             GameManager.Instance.Player.UnEquip(selectedItem);
             UIManager.Instance.Status.SetCharacterInfo(GameManager.Instance.Player);
+            foreach (var slot in slots)
+            {
+                if (slot.HasItem(selectedItem))
+                {
+                    slot.SetEquip(false);
+                }
+            }
         }
     }
 }
